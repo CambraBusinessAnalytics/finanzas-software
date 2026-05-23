@@ -1,0 +1,14 @@
+supuesto,valor,comentario
+annual_revenue_brl,9500000,Editable en el dashboard
+pyg_per_brl,1450,Editable en el dashboard
+pyg_per_usd,7500,Editable en el dashboard
+employee_count,8,Editable en el dashboard
+monthly_salary_pyg,6000000,Editable en el dashboard
+monthly_office_rent_pyg,1500000,Editable en el dashboard
+office_setup_pyg,10000000,Editable en el dashboard
+computer_unit_pyg,3000000,Editable en el dashboard
+ire_rate,0.1,Editable en el dashboard
+idu_nonresident_rate,0.15,Editable en el dashboard
+ips_employer,0.165,Editable en el dashboard
+br_cost_ratio,0.68,Editable en el dashboard
+br_effective_tax_rate,0.24,Editable en el dashboard
