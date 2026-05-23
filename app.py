@@ -1,4 +1,5 @@
 
+import os
 import math
 from dataclasses import dataclass
 import pandas as pd
@@ -439,5 +440,7 @@ def download_csv(n_clicks, *values):
     df = compute_model(p)
     return dcc.send_data_frame(df.to_csv, "modelo_brasil_vs_paraguay.csv", index=False)
 
+
 if __name__ == "__main__":
-    app.run_server(debug=True)
+    port = int(os.environ.get("PORT", 8050))
+    app.run(host="0.0.0.0", port=port, debug=False)
