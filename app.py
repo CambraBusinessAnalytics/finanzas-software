@@ -52,7 +52,7 @@ DEFAULTS = {
     "invoice_cert_pyg": 480_000,
     "seal_pyg": 130_000,
     "office_setup_pyg": 10_000_000,
-    "computer_count": 3,
+    "computer_count": 8,
     "computer_unit_pyg": 3_000_000,
 
     # Tratamiento fiscal del CAPEX
@@ -243,12 +243,22 @@ def compute_model(p):
 
 
 def convert_money_columns(df, currency, pyg_per_brl):
+    """Convierte columnas monetarias base BRL a la moneda de presentación.
+
+    Importante: si currency == "BRL", el nombre nuevo coincide con el original.
+    En ese caso NO se debe crear y luego eliminar la misma columna, porque eso
+    deja el DataFrame sin columnas monetarias y rompe gráficos/tablas.
+    """
     out = df.copy()
     for col in list(out.columns):
         if col.endswith(" BRL"):
             new_col = col.replace(" BRL", f" {currency}")
-            out[new_col] = out[col].apply(lambda x: from_brl(x, currency, pyg_per_brl))
-            out.drop(columns=[col], inplace=True)
+            converted = out[col].apply(lambda x: from_brl(x, currency, pyg_per_brl))
+            if new_col == col:
+                out[col] = converted
+            else:
+                out[new_col] = converted
+                out.drop(columns=[col], inplace=True)
     return out
 
 
