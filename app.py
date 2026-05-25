@@ -52,7 +52,7 @@ DEFAULTS = {
     "invoice_cert_pyg": 480_000,
     "seal_pyg": 130_000,
     "office_setup_pyg": 10_000_000,
-    "computer_count": 8,
+    "computer_count": 3,
     "computer_unit_pyg": 3_000_000,
 
     # Tratamiento fiscal del CAPEX
